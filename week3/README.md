@@ -24,10 +24,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 # Install SSL/TLS certificate in Nginx to load application over HTTPS
 
 * Run this command below to create self signed certificate
-    - sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout         nginx-selfsigned.key -out nginx-selfsigned.crt
+    - `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout         nginx-selfsigned.key -out nginx-selfsigned.crt`
 
 * Run APP with this command 
-    - docker-compose up --build -d 
+    - `docker-compose up --build -d `
 
 * Shutdown APP with this command 
-    - docker-compose down  
+    - `docker-compose down`  
