@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./week4
+        working-directory: week4
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout
@@ -31,7 +31,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          source: ./week4
           context: .
           push: true
           tags: damola12345/python-django:latest
