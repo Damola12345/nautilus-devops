@@ -3,7 +3,7 @@ name: Docker Image CI
 on:
 
   push:
-    branches: [ master ]
+    branches: [ ft/django_python ]
   # pull_request:
     # branches: [ main ]
 
@@ -11,9 +11,6 @@ jobs:
   build:
     # The type of runner that the job will run on    
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: week4
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout
@@ -31,6 +28,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: ./week4
+          file: ./week4/Dockerfile
           push: true
           tags: damola12345/python-django:latest
