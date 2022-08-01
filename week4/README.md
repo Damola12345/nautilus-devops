@@ -6,7 +6,7 @@ Technologies
 * Django
 * Docker
 * Docker Compose
-* CI/CD - "Github Actions"
+* CI/CD - Github Actions
 * Dockerhub
 
 # Run App locally
