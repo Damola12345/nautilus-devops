@@ -3,8 +3,8 @@
 Using Docker-Compose, configure and deploy an nginx application that routes to two applications running also in docker application.
 Specifications: Using nginx location directive,
 
-a. /django -> should route to app1
-b. /nest -> should route to app2
+- a. /django -> should route to app1
+- b. /nest -> should route to app2
 
 Technologies
 * Django
