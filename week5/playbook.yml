@@ -1,0 +1,23 @@
+---
+
+- name: Install App Ubuntu servers
+  hosts: all
+  become: true
+  become_user: root
+
+  tasks:
+    - name: update ubuntu
+      apt:
+        name: "*"
+        state: latest
+        update_cache: yes
+
+    - name: Update apt cache and make sure http, Curl, nginx and httpd are installed
+      apt:
+        name: "{{ item }}"
+        update_cache: yes
+      loop:
+        - http
+        - curl
+        - nginx
+        - httpd
