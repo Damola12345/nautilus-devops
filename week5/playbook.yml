@@ -7,12 +7,21 @@
   gather_facts: false
 
   tasks:
-    - name: Update apt cache and make sure http, Curl, nginx and httpd are installed
+    - name: Update apt cache and make sure Curl, nginx  are installed
       apt:
         name: "{{ item }}"
+        state: latest 
         update_cache: yes
       loop:
-        - http
         - curl
         - nginx
-        - httpd
+
+    - name: Install apache httpd  
+      apt:
+        name: httpd
+        state: present
+
+    - name: Install http
+      apt:
+        name: http
+        state: present
