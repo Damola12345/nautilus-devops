@@ -25,18 +25,28 @@ to test your manifest by running Terraform apply, as this is the only thing we s
 
     - In the end, DevOps is the primary foundation. All of the process enhancements and automation we do should improve or solve one of its primary pillars. Iac introduces us to a practice that will allow us to easily keep track, improve maintainability and achieve scalability in our infrastructure.
 
-* Install Terraform
-    - Visit [ Terraform Documentation](https://www.terraform.io/downloads) for a clear guide
-    - Visit [ Terraform Documentation](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+# Install Terraform
+- Visit [ Terraform Documentation](https://www.terraform.io/downloads) for a clear guide
+- Visit [ Terraform Documentation](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 
-* Basic Terraform command 
-    - `terraform version` — Shows the current version of your Terraform and notifies you if there is a newer version available for download.
-    - `terraform init` — In order to prepare the working directory for use with Terraform, the terraform init command performs Backend Initialization, Child Module Installation, and Plugin Installation.
-    - `terraform fmt` — Format your Terraform configuration files using the HCL language standard.
-    - `terraform validate` — Validates the configuration files in your directory, and does not access any remote state or services. terraform init should be run before this command.
-    - `terraform plan` — Plan will generate an execution plan, showing you what actions will be taken without actually performing the planned actions.
-    - `terraform apply` — Creates or updates infrastructure depending on the configuration files. By default, a plan will be generated first and will need to be approved before it is applied.
-    - `terraform apply -auto-approve` — Apply changes without having to interactively type ‘yes’ to the plan. Useful in automation CI/CD pipelines.
-    - `terraform destroy` — Destroys the infrastructure managed by Terraform.
+# Basic Terraform command 
+- `terraform version` — Shows the current version of your Terraform and notifies you if there is a newer version available for download.
+- `terraform init` — In order to prepare the working directory for use with Terraform, the terraform init command performs Backend Initialization, Child Module Installation, and Plugin Installation.
+- `terraform fmt` — Format your Terraform configuration files using the HCL language standard.
+- `terraform validate` — Validates the configuration files in your directory, and does not access any remote state or services. terraform init should be run before this command.
+- `terraform plan` — Plan will generate an execution plan, showing you what actions will be taken without actually performing the planned actions.
+- `terraform apply` — Creates or updates infrastructure depending on the configuration files. By default, a plan will be generated first and will need to be approved before it is applied.
+- `terraform apply -auto-approve` — Apply changes without having to interactively type ‘yes’ to the plan. Useful in automation CI/CD pipelines.
+- `terraform destroy` — Destroys the infrastructure managed by Terraform.
 
+# Steps 
+- Run the `terraform fmt` command to automatically format the source code to make it human-readable
+
+- Run the `terraform validate` command to validates the configuration files in a directory
+
+- Next, run the `terraform init` command to initialize the working directory
+
+- Run the `terraform plan` command to generate an execution plan
+
+- Run the `terraform apply` command to Creates or updates infrastructure depending on the configuration files.
 
