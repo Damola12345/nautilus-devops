@@ -15,6 +15,28 @@ to test your manifest by running Terraform apply, as this is the only thing we s
 # SOLUTION
 
 * What is Infrastructure as Code (IaC)
-Infrastructure-as-code is an idea where we build our software infrastructure through config files or manifest files. But before we dive deep into its concept, let’s first understand the two common approaches to managing our software infrastructure, the imperative way, and the declarative way.
+    - Infrastructure-as-code is an idea where we build our software infrastructure through config files or manifest files. But before we dive deep into its concept, let’s first understand the two common approaches to managing our software infrastructure, the imperative way, and the declarative way.
 
-The declarative approach defines the desired outcome or what we want to accomplish without feeding the tool with the step-by-step details of how to do it. while the imperative approach defines how an object state should change and the exact order in which those changes should be executed.
+    - The declarative approach defines the desired outcome or what we want to accomplish without feeding the tool with the step-by-step details of how to do it. while the imperative approach defines how an object state should change and the exact order in which those changes should be executed. The most popular and widely used IaC tools are Chef, Ansible, Puppet, and Terraform. Each has its techniques and approach and even has its format of the file is read.
+
+    - With Infrastructure-as-code (IaC), you maintain a file that can be referenced by a multitude of servers. One of the main benefits of this is, that you are assured that if it works on one server, it will then work the same way with another. And let’s say, you no longer want a component to be included in the process of provisioning, you can easily make changes to the file and the tool will then apply the changes to the server based on the contents of the file.
+
+    - Since the manifest files are usually tiny in size, this allows us to have a very testable infrastructure as well, as we can spin up a server from the config file and if it doesn't work, perform some changes then repeat the process until the output becomes satisfactory. This solves the problem with replicability and scalability of our infrastructure as one file is enough for you to provision clones of servers very quickly.
+
+    - In the end, DevOps is the primary foundation. All of the process enhancements and automation we do should improve or solve one of its primary pillars. Iac introduces us to a practice that will allow us to easily keep track, improve maintainability and achieve scalability in our infrastructure.
+
+* Install Terraform
+    - Visit [ Terraform Documentation](https://www.terraform.io/downloads) for a clear guide
+    - Visit [ Terraform Documentation](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+
+* Basic Terraform command 
+    - `terraform version` — Shows the current version of your Terraform and notifies you if there is a newer version available for download.
+    - `terraform init` — In order to prepare the working directory for use with Terraform, the terraform init command performs Backend Initialization, Child Module Installation, and Plugin Installation.
+    - `terraform fmt` — Format your Terraform configuration files using the HCL language standard.
+    - `terraform validate` — Validates the configuration files in your directory, and does not access any remote state or services. terraform init should be run before this command.
+    - `terraform plan` — Plan will generate an execution plan, showing you what actions will be taken without actually performing the planned actions.
+    - `terraform apply` — Creates or updates infrastructure depending on the configuration files. By default, a plan will be generated first and will need to be approved before it is applied.
+    - `terraform apply -auto-approve` — Apply changes without having to interactively type ‘yes’ to the plan. Useful in automation CI/CD pipelines.
+    - `terraform destroy` — Destroys the infrastructure managed by Terraform.
+
+
