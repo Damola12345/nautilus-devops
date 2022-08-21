@@ -12,7 +12,7 @@ defaults:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     strategy:
       matrix:
@@ -28,10 +28,4 @@ jobs:
         cache-dependency-path: './week7/package-lock.json'
     - run: npm i
 
-    - name: Deploy to Server 1
-      uses: easingthemes/ssh-deploy@main
-      env:
-        SSH_PRIVATE_KEY: ${ { secrets.EC2_SSH_KEY }}
-        REMOTE_HOST: ${ { secrets.HOST_DNS }}
-        REMOTE_USER: ${ { secrets.USERNAME }}
-        TARGET: ${ { secrets.TARGET_DIR }}
+    
