@@ -27,7 +27,6 @@ jobs:
         cache: 'npm'
         cache-dependency-path: './week7/package-lock.json'
     - run: npm i
-    - run: npm start
 
     - name: Deploy to Server 1
       uses: easingthemes/ssh-deploy@main
