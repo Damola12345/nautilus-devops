@@ -27,5 +27,5 @@ jobs:
         cache: 'npm'
         cache-dependency-path: './week7/package-lock.json'
     - run: npm i
-    - run: sudo pm2 restart 
+    - run: sudo pm2 restart index
     
