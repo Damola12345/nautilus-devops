@@ -21,6 +21,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: './week7/package-lock.json'
     - run: npm i
     - run: npm start
 
