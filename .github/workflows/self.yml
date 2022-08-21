@@ -5,6 +5,10 @@ on:
   push:
     branches: [ "ft/week7_cicd" ]
 
+defaults:
+  run:
+    working-directory: ./week7/
+
 jobs:
   build:
 
