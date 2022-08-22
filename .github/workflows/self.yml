@@ -12,7 +12,7 @@ defaults:
 jobs:
   build:
 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -27,5 +27,13 @@ jobs:
         cache: 'npm'
         cache-dependency-path: './week7/package-lock.json'
     - run: npm i
-    - run: sudo pm2 restart index
+    # - run: sudo pm2 restart index
+
+    - name: Deploy to EC2 instance
+      uses: easingthemes/ssh-deploy@main
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+        REMOTE_HOST: ${{ secrets.HOST_DNS }}
+        REMOTE_USER: ${{ secrets.USERNAME }}
+        TARGET: ${{ secrets.TARGET_DIR }}
     
