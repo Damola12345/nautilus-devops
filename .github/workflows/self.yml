@@ -27,7 +27,6 @@ jobs:
         cache: 'npm'
         cache-dependency-path: './week7/package-lock.json'
     - run: npm i
-    - run: sudo npm install pm2 -g
 
     - name: Deploy to EC2 instance
       uses: easingthemes/ssh-deploy@main
@@ -38,7 +37,6 @@ jobs:
         REMOTE_USER: ${{ secrets.REMOTE_USER }}
         TARGET: ${{ secrets.TARGET }}
         SOURCE: ""
-        script: |
-          sudo pm2 start index.js --name=week7
+
 
     
