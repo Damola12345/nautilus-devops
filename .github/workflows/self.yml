@@ -38,7 +38,7 @@ jobs:
         REMOTE_USER: ${{ secrets.REMOTE_USER }}
         TARGET: ${{ secrets.TARGET }}
         SOURCE: ""
-        script: |
+      run: |
           sudo npm install pm2 -g
           sudo pm2 start index.js --name=week7
 
