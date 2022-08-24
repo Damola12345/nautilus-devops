@@ -26,17 +26,17 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: './week7/package-lock.json'
-    - run: npm i
+    # - run: npm i
 
-    - name: Deploy to EC2 instance
-      uses: easingthemes/ssh-deploy@main
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        ARGS: "-rltgoDzvO --delete"
-        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-        REMOTE_USER: ${{ secrets.REMOTE_USER }}
-        TARGET: ${{ secrets.TARGET }}
-        SOURCE: ""
+    # - name: Deploy to EC2 instance
+    #   uses: easingthemes/ssh-deploy@main
+    #   env:
+    #     SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+    #     ARGS: "-rltgoDzvO --delete"
+    #     REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+    #     REMOTE_USER: ${{ secrets.REMOTE_USER }}
+    #     TARGET: ${{ secrets.TARGET }}
+    #     SOURCE: ""
 
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@master
@@ -45,9 +45,10 @@ jobs:
         username: ${{ secrets.REMOTE_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-            sudo apt update && sudo apt upgrade -y 
-            sudo apt install nodejs npm -y 
-            sudo npm install pm2 -g && pm2 update
+            # sudo apt update && sudo apt upgrade -y 
+            # sudo apt install nodejs npm -y 
+            # sudo npm install pm2 -g && pm2 update
             cd /home/ubuntu/nautilus-devops/week7
-            sudo pm2 start index.js --name=week7 
+            # sudo pm2 start index.js --name=week7 
+            sudo pm2 restart week7
     
