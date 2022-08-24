@@ -1,54 +1,54 @@
 
-name: EC2 CI
+# name: EC2 CI
 
-on:
-  push:
-    branches: [ "ft/week7_cicd" ]
+# on:
+#   push:
+#     branches: [ "ft/week7_cicd" ]
 
-defaults:
-  run:
-    working-directory: ./week7/
+# defaults:
+#   run:
+#     working-directory: ./week7/
 
-jobs:
-  build:
+# jobs:
+#   build:
 
-    runs-on: ubuntu-latest
+#     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
+#     strategy:
+#       matrix:
+#         node-version: [16.x]
         
-    steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-        cache-dependency-path: './week7/package-lock.json'
-    - run: npm i
+#     steps:
+#     - uses: actions/checkout@v3
+#     - name: Use Node.js ${{ matrix.node-version }}
+#       uses: actions/setup-node@v3
+#       with:
+#         node-version: ${{ matrix.node-version }}
+#         cache: 'npm'
+#         cache-dependency-path: './week7/package-lock.json'
+#     - run: npm i
 
-    - name: Deploy to EC2 instance
-      uses: easingthemes/ssh-deploy@main
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        ARGS: "-rltgoDzvO --delete"
-        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-        REMOTE_USER: ${{ secrets.REMOTE_USER }}
-        TARGET: ${{ secrets.TARGET }}
-        SOURCE: ""
+#     - name: Deploy to EC2 instance
+#       uses: easingthemes/ssh-deploy@main
+#       env:
+#         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+#         ARGS: "-rltgoDzvO --delete"
+#         REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+#         REMOTE_USER: ${{ secrets.REMOTE_USER }}
+#         TARGET: ${{ secrets.TARGET }}
+#         SOURCE: ""
 
-    - name: executing remote ssh commands using ssh key
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.REMOTE_HOST }}
-        username: ${{ secrets.REMOTE_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-            # sudo apt update && sudo apt upgrade -y 
-            # sudo apt install nodejs npm -y 
-            # sudo npm install pm2 -g && pm2 update
-            cd /home/ubuntu/nautilus-devops/week7
-            # sudo pm2 start index.js --name=week7 
-            sudo pm2 restart week7
+#     - name: executing remote ssh commands using ssh key
+#       uses: appleboy/ssh-action@master
+#       with:
+#         host: ${{ secrets.REMOTE_HOST }}
+#         username: ${{ secrets.REMOTE_USER }}
+#         key: ${{ secrets.SSH_PRIVATE_KEY }}
+#         script: |
+#             # sudo apt update && sudo apt upgrade -y 
+#             # sudo apt install nodejs npm -y 
+#             # sudo npm install pm2 -g && pm2 update
+#             cd /home/ubuntu/nautilus-devops/week7
+#             # sudo pm2 start index.js --name=week7 
+#             sudo pm2 restart week7
     
