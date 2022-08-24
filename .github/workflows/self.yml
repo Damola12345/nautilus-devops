@@ -49,5 +49,5 @@ jobs:
             sudo apt install nodejs npm -y 
             sudo npm install pm2 -g && pm2 update
             cd /home/ubuntu/nautilus-devops/week7
-            sudo pm2 start app.js --name=week7 
+            sudo pm2 start index.js --name=week7 
     
