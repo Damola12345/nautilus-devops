@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-django-deploy
+  labels:
+    app: python-django-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: python-django-app
+  template:
+    metadata:
+      labels:
+        app: python-django-app
+    spec:
+      containers:
+      - name: python-django
+        image: damola12345/python-django:latest
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: "1"
+          requests:
+            memory: 256Mi
+            cpu: "0.2"
+        ports:
+          - containerPort: 8000
