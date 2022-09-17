@@ -48,22 +48,10 @@ jobs:
           prerelease: false
 
       - name: Notify slack success
-        if: success()
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFY}}
-        uses: voxmedia/github-action-slack-notify-build@v1
+        uses: craftech-io/slack-action@v1
         with:
-          channel: pipeline-ci-cd
-          status: SUCCESS
-          color: good
-
-      - name: Notify slack fail
-        if: failure()
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFY }}
-        uses: voxmedia/github-action-slack-notify-build@v1
-        with:
-          channel: pipeline-ci-cd
-          status: FAILED
-          color: danger
+          slack_webhook_url: ${{ secrets.SLACK_NOTIFY }}
+          slack_channel: pipeline-ci-cd
+          status: ${{ job.status }}
+        if: always()
           
