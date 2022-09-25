@@ -40,7 +40,7 @@ Open [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to view it in the browser.
 
 ## CI/CD Pipeline with Github Actions
 
-The pipeline has been configured to run everytime a push/pull_request is made to the `main` branch. You should uncomment the `ci.yml` workflow.
+The pipeline has been configured to run everytime a push/pull_request is made to the `master` branch.
 
 #### Workflow Steps
 
@@ -52,4 +52,4 @@ The pipeline has been configured to run everytime a push/pull_request is made to
 
 - Build and push: The `Build and push` action is used to build and push Docker images with Buildx
 
-- Deploy to Dockerhub: View pushed image in your dockerhub account
+- Deploy to Dockerhub: View pushed image in your dockerhub account.
